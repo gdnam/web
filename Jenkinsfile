@@ -1,23 +1,15 @@
 pipeline {
     agent any
-
     stages {
-        stage('Hello') {
+        stage('Build Code') {
             steps {
-                git 'https://github.com/gdnam/web.git'
-                echo 'Hello World'
+                 sh 'npm install'
             }
         }
-    stage('build code')
-    {
-        build 'BuidAppJob'
-    }
-    stage(' Results ')
-    {
-        build 'TestAppJob'
-    }
+        stage('Results') {
+            steps {
+               sh 'npm test'
+            }
+        }
     }
 }
-
-
-
