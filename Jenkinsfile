@@ -8,21 +8,21 @@ pipeline {
                 echo 'Hello World'
             }
         }
-    stages('build code')
+    stage('build code')
     {
         steps
         {
             bat script: 'mvn complie'
         }
     }
-    stages('Run test ')
+    stage('Run test ')
     {
         steps 
         {
             bat script: 'mvn test -Dbrower=localchrome'
         }
     }
-    stages('Publish HTML Reports')
+    stage('Publish HTML Reports')
     {
         steps
         {
