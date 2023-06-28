@@ -12,14 +12,14 @@ pipeline {
     {
         steps
         {
-            bat script: 'mvn complie'
+            script: 'mvn complie'
         }
     }
     stage('Run test ')
     {
         steps 
         {
-            bat script: 'mvn test -Dbrower=localchrome'
+            script: 'mvn test -Dbrower=localchrome'
         }
     }
     stage('Publish HTML Reports')
