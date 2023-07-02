@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                git credentialsId: '5596cd6c-b80c-44f4-899b-bc98f7a951b5', url: 'https://github.com/gdnam/web.git'
+                git credentialsId: '78e5cc69-355e-4570-9048-8bf7e600013c', url: 'https://github.com/gdnam/web.git'
                 echo 'Hello World'
             }
         }
@@ -26,7 +26,7 @@ pipeline {
     {
         steps
         {
-         publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'Pipeline', reportTitles: '', useWrapperFileDirectly: true])
+         publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
     }
