@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                git credentialsId: '78e5cc69-355e-4570-9048-8bf7e600013c', url: 'https://github.com/gdnam/web.git'
+                git 'https://github.com/gdnam/web.git'
                 echo 'Hello World'
             }
         }
@@ -12,14 +12,14 @@ pipeline {
     {
         steps
         {
-            script: 'mvn complie'
+            sh 'mvn complie'
         }
     }
     stage('Run test ')
     {
         steps 
         {
-            script: 'mvn test -Dbrower=localchrome'
+            sh 'mvn test -Dbrower=localchrome'
         }
     }
     stage('Publish HTML Reports')
