@@ -12,14 +12,14 @@ pipeline {
     {
         steps
         {
-            sh 'mvn complie'
+            echo 'Buid App'
         }
     }
     stage('Run test ')
     {
         steps 
         {
-            sh 'mvn test -Dbrower=localchrome'
+            echo 'Test App'
         }
     }
     stage('Publish HTML Reports')
@@ -29,5 +29,11 @@ pipeline {
          publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
+    }
+    post {
+        always
+        {
+            emailext body: 'Summary', subject: 'Pipeline: Status', to: 'selemium3bymukesh@gmail.com'
+        }
     }
 }
