@@ -26,14 +26,8 @@ pipeline {
     {
         steps
         {
-         publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'Pipeline', reportTitles: '', useWrapperFileDirectly: true])
+        publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'Pipeline', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
-    }
-    post {
-        always
-        {
-            emailext body: 'Summary', subject: 'Pipeline: Status', to: 'selemium3bymukesh@gmail.com'
-        }
     }
 }
